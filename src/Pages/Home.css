@@ -1,0 +1,12 @@
+.seatsContainer {
+    -webkit-animation-delay: 50ms;
+    animation-delay: 50ms;
+    -webkit-animation-duration: .2s;
+    animation-duration: .2s;
+    -webkit-animation-name: entry-from-left;
+    animation-name: entry-from-left;
+    background-color: #fff;
+    border-radius: 0.6125em;
+    color: #212121;
+    padding: 0.625rem;
+}
