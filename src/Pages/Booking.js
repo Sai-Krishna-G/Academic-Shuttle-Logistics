@@ -1,83 +1,219 @@
-import React, { useState } from 'react';
-import './Booking.css';
-
-function Booking() {
-  const [selectedSeat, setSelectedSeat] = useState('');
-  const [studyYear, setStudyYear] = useState('');
-  const [branch, setBranch] = useState('');
-  const [busRoute, setBusRoute] = useState('');
-
-  function handleSeatSelection(seatNumber) {
-    setSelectedSeat(seatNumber);
-  }
-
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    switch (name) {
-      case 'studyYear':
-        setStudyYear(value);
-        break;
-      case 'branch':
-        setBranch(value);
-        break;
-      case 'busRoute':
-        setBusRoute(value);
-        break;
-      default:
-        break;
-    }
-  }
-
-  function handleSubmit() {
-    console.log('Selected seat:', selectedSeat);
-    console.log('Study year:', studyYear);
-    console.log('Branch:', branch);
-    console.log('Bus route:', busRoute);
-  }
-
-  return (
-    <div className="booking-container">
-      <h1>Bus Booking</h1>
-      <div className="bus-layout">
-        {/* Display a bus layout with radio buttons for seat selection */}
-        {Array.from({ length: 30 }, (_, i) => i + 1).map(seatNumber => (
-          <label key={seatNumber} className="seat-label">
-            <input
-              type="radio"
-              name="seat"
-              value={seatNumber}
-              checked={selectedSeat === seatNumber}
-              onChange={() => handleSeatSelection(seatNumber)}
-            />
-            <span className="seat-number">{seatNumber}</span>
-          </label>
-        ))}
-      </div>
-      <div className="form-field">
-        <label htmlFor="studyYear">Study Year:</label>
-        <input type="text" name="studyYear" value={studyYear} onChange={handleInputChange} className="input-field" />
-      </div>
-      <div className="form-field">
-        <label htmlFor="branch">Branch:</label>
-        <input type="text" name="branch" value={branch} onChange={handleInputChange} className="input-field" />
-      </div>
-      <div className="form-field">
-        <label htmlFor="busRoute">Bus Route:</label>
-        <select name="busRoute" value={busRoute} onChange={handleInputChange} className="select-field">
-          <option value="">Select a route</option>
-          {studyYear === '1'
-            ? Array.from({ length: 10 }, (_, i) => i + 1).map(route => (
-                <option key={route} value={`Route ${route}`}>Route {route}</option>
-              ))
-            : Array.from({ length: 15 }, (_, i) => i + 11).map(route => (
-                <option key={route} value={`Route ${route}`}>Route {route}</option>
-              ))
-          }
-        </select>
-      </div>
-      <button onClick={handleSubmit} className="submit-button">Submit</button>
-    </div>
-  );
+import {View,Text} from  'react-native';
+import { FlatList, TouchableOpacity } from 'react-native';
+import React,{useState} from 'react';
+import logo from '../images/steering.png'
+import icon from '../images/seat.png'
+import icon1 from '../images/seat1.png'
+let selectedSeats=[];
+const Booking=() => {
+  const[row1,setRow1]=useState([
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:false,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:false,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:false,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:false,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    
+  ]);
+  const[row2,setRow2]=useState([
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:false,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:false,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:false,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:false,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+  ]);
+  const[row3,setRow3]=useState([
+    {empty:false,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+    {empty:false,selected:false},
+    {empty:true,selected:false},
+    {empty:true,selected:false},
+  ]);
+  const onSelectRow1=(index)=>{
+    let tempRow=[];
+    tempRow=row1;
+    tempRow.map((item,ind)=>{
+      if(index==ind){
+        if(item.selected==true){
+          item.selected=false;
+          item.empty=true;
+        }
+        else{
+          item.selected=true;
+          item.empty=false;
+        }
+      }
+    });
+    let tempSeats=[];
+    tempRow.map(item=>{
+      tempSeats.push(item);
+    });
+    setRow1(tempSeats);
+  };
+  const onSelectRow2=(index)=>{
+    let tempRow=[];
+    tempRow=row2;
+    tempRow.map((item,ind)=>{
+      if(index==ind){
+        if(item.selected==true){
+          item.selected=false;
+          item.empty=true;
+        }
+        else{
+          item.selected=true;
+          item.empty=false;
+        }
+      }
+    });
+    let tempSeats=[];
+    tempRow.map(item=>{
+      tempSeats.push(item);
+    });
+    setRow2(tempSeats);
+  };
+  const onSelectRow3=(index)=>{
+    let tempRow=[];
+    tempRow=row3;
+    tempRow.map((item,ind)=>{
+      if(index==ind){
+        if(item.selected==true){
+          item.selected=false;
+          item.empty=true;
+        }
+        else{
+          item.selected=true;
+          item.empty=false;
+        }
+      }
+    });
+    let tempSeats=[];
+    tempRow.map(item=>{
+      tempSeats.push(item);
+    });
+    setRow3(tempSeats);
+  };
+  const getAllseats=()=>{
+    selectedSeats=[];
+    row1.map(item=>{
+      if(item.selected==true){
+        selectedSeats.push(1);
+      }
+    });
+    row2.map(item=>{
+      if(item.selected==true){
+        selectedSeats.push(1);
+      }
+    });
+    row3.map(item=>{
+      if(item.selected==true){
+        selectedSeats.push(1);
+      }
+    });
+  return selectedSeats.length;
+  };
+  return(
+    <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+      <View style={{margin:'60px',width:'375px',height:'500px',borderWidth:1,borderRadius:5,borderColor:'#8e8e8e'}}>
+       <img src={logo} style={{width:'60px',height:'60px',alignSelf:'flex-end'}} alt='image' />
+        {/* style={{width:24,height:24,alignSelf:'flex-end',margin:10, opacity:.5}}/>  */}
+      <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
+      <View>
+        <FlatList data={row1} numColumns={2} renderItem={({item,index})=>{
+          return(
+            <TouchableOpacity style={{margin:7}} onPress={()=>{
+              if(item.selected==false && item.empty==false){
+                alert("already booked");
+              }
+              else{
+                 onSelectRow1(index);                        
+              }
+            }}>
+              {
+                item.empty==false && item.selected==true?(<img src={icon1} style={{width:'25px',height:'25px',tintColor:'green',margin:'2px',marginRight:'25px'}}></img>):
+                item.empty==true && item.selected==false?(<img src={icon} style={{width:'25px',height:'25px',margin:'2px',marginRight:'25px'}}></img>):
+                item.empty==false && item.selected==false?(<img src={icon1} style={{width:'25px',height:'25px',tintColor:'#8e8e8e',margin:'2px',marginRight:'25px'}}></img>): null
+              }
+            </TouchableOpacity>
+          );
+        }}
+        />
+      </View>
+      <View>
+        <FlatList data={row2} numColumns={2} renderItem={({item,index})=>{
+          return(
+            <TouchableOpacity style={{margin:7}} onPress={()=>{
+              if(item.selected==false && item.empty==false){
+                alert("already booked");
+              }
+              else{
+                 onSelectRow2(index);                        
+              }
+            }}>
+              {
+                item.empty==false && item.selected==true?(<img src={icon1} style={{width:'25px',height:'25px',tintColor:'green',margin:'2px',marginRight:'25px'}}></img>):
+                item.empty==true && item.selected==false?(<img src={icon} style={{width:'25px',height:'25px',margin:'2px',marginRight:'25px'}}></img>):
+                item.empty==false && item.selected==false?(<img src={icon1} style={{width:'25px',height:'25px',tintColor:'#8e8e8e',margin:'2px',marginRight:'25px'}}></img>): null
+              }
+            </TouchableOpacity>
+          );
+        }}
+        />
+      </View>    
+      </View>
+      <View style={{width:'100%',justifyContent:'center',alignItems:'center'}}>
+      <FlatList data={row3} horizontal renderItem={({item,index})=>{
+          return(
+            <TouchableOpacity style={{margin:7}} onPress={()=>{
+              if(item.selected==false && item.empty==false){
+                alert("already booked");
+              }
+              else{
+                 onSelectRow3(index);                        
+              }
+            }}>
+              {
+                item.empty==false && item.selected==true?(<img src={icon1} style={{width:'25px',height:'25px',tintColor:'green',margin:'1.5px',marginRight:'25px'}}></img>):
+                item.empty==true && item.selected==false?(<img src={icon} style={{width:'25px',height:'25px',margin:'1.5px',marginRight:'25px'}}></img>):
+                item.empty==false && item.selected==false?(<img src={icon1} style={{width:'25px',height:'25px',tintColor:'#8e8e8e',margin:'1.5px',marginRight:'25px'}}></img>): null
+              }
+            </TouchableOpacity>
+          );
+        }}
+        />
+      </View>    
+      </View>
+      <View style={{position:'absolute',bottom:0,backgroundcolor:'#fff',height:60,width:'100%',elevation:2,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
+        <Text style={{color:'#000',marginLeft:'600px'}}>{'selected Seats('+getAllseats()+')'}</Text>
+        <TouchableOpacity style={{width:'30px',height:'10px',backgroundcolor:'green',justifyContent:'center',alignItems:'center',marginRight:'600px'}}>
+        <Text style={{color:'green'}}>Book Now</Text></TouchableOpacity>
+      </View>
+    </View>
+  )
 }
-
 export default Booking;
