@@ -1,0 +1,38 @@
+/* YourComponent.css */
+
+.container {
+  display: flex;
+  height: 70vh;
+}
+
+.text-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3498db; /* Add your desired background color */
+  color: #ffffff; /* Add your desired text color */
+  position: relative;
+}
+
+.text-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100px; /* Adjust the width of the curve */
+  background-color: #e74c3c; /* Add your desired color for the curve */
+  clip-path: polygon(100% 0%, 0% 50%, 100% 100%); /* This creates a triangle to form a curve */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .text-container::before {
+    content: none; /* Remove the curve on smaller screens */
+  }
+}

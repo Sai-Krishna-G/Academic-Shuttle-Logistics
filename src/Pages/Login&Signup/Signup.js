@@ -1,49 +1,50 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import logo from "../../images/logo.png"
 import "./Signup.css";
 
-const imgAddress="https://st4.depositphotos.com/1006318/20337/v/1600/depositphotos_203371206-stock-illustration-yellow-school-bus-front-view.jpg"
+
 
 function Signup() {
   return (
     <>
-      <div className="login-page">
-        <div className="login-container">
+      <div className="signup-page">
+        <div className="signup-container">
           <div className="logo">
-            <img src={imgAddress} alt="Logo" />
+            <img src={logo} alt="Logo" />
           </div>
-          <div className="login-form">
-            <h2>Login</h2>
+          <div className="signup-form">
+            <h2>signup</h2>
             <form>
-              <label htmlFor="login-input" className="label">
+              <label htmlFor="signup-input" className="label">
                 Email Address
               </label>
               <input
                 type="email"
-                className="login-input"
-                id="login-input"
+                className="signup-input"
+                id="signup-input"
                 required
               />
 
-              <label htmlFor="login-input-password" className="label">
+              <label htmlFor="signup-input-password" className="label">
                 Password
               </label>
               <input
                 type="password"
-                className="login-input"
-                id="login-input-password"
+                className="signup-input"
+                id="signup-input-password"
                 required
               />
-              <label htmlFor="login-input-confirmPassword" className="label">
+              <label htmlFor="signup-input-confirmPassword" className="label">
                 confirm Password 
               </label>
               <input
                 type="password"
-                className="login-input"
-                id="login-input-password"
+                className="signup-input"
+                id="signup-input-password"
                 required
               />
-              <button className="btn-login" type="submit">
+              <button className="btn-signup" type="submit">
                 Log In
               </button>
               <p className="auth-para">

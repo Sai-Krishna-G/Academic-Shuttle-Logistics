@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import "./Login.css";
-
-const imgAddress="https://st4.depositphotos.com/1006318/20337/v/1600/depositphotos_203371206-stock-illustration-yellow-school-bus-front-view.jpg"
+import logo from "../../images/logo.png"
 
 function Login() {
   return (
@@ -10,7 +9,7 @@ function Login() {
       <div className="login-page">
         <div className="login-container">
           <div className="logo">
-            <img src={imgAddress} alt="Logo" />
+            <img src={logo} alt="Logo" />
           </div>
           <div className="login-form">
             <h2>Login</h2>
