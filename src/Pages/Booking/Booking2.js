@@ -61,7 +61,7 @@ const Booking2 = () => {
   
   return (
     < >
-    <div className="container" id="booking-container">
+    <div className="booking-container" id="booking-container">
       <div className="inner-1">
         <h3>Booking Form</h3>
         <form>

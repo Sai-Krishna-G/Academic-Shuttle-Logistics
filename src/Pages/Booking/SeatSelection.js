@@ -192,7 +192,11 @@ const SeatSelection = (props) => {
           <Text style={{ color: 'green' }}>Book Now</Text>
         </TouchableOpacity>
       </View> */}
-      <button type='submit' onClick={handleClick}>Submit</button>
+      <div className='nxt-btn'>
+          <button type="button" onClick={handleClick}>
+            SUBMIT
+          </button>
+        </div>
     </View>
     
   );

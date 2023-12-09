@@ -143,7 +143,7 @@ function Signup() {
             <p className="auth-para">
               Already have an account?
               <span>
-                <Link to="/"> LOGIN </Link>
+                <Link to="/login"> LOGIN </Link>
               </span>
             </p>
           </form>
