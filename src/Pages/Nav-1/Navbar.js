@@ -26,7 +26,7 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/booking" activeClassName="active" onClick={handleToggleMenu}>
+          <NavLink to="/Booking" activeClassName="active" onClick={handleToggleMenu}>
             Booking
           </NavLink>
         </li>

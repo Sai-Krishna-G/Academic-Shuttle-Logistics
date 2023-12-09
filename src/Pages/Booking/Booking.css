@@ -1,0 +1,81 @@
+.container {
+    margin: 0;
+    padding: 0;
+    min-height : 100vh ;
+    height: fit-content;
+    background-color: #f4f4f4;
+}
+.container h3{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.inner-1 {
+    padding: 20px;
+    margin : 50px auto;
+    width: 70%;
+    justify-content: center;
+    
+}
+
+
+
+
+.form-label {
+    font-weight: bold;
+    color: #5E717D;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    margin-top: 10px;
+}
+.container input {
+    border-color: #5E717D;
+    border-radius: 5px;
+    margin: 15px auto;
+    background-color: #16151303;
+    outline: none;
+    padding: 15px 10px;
+}
+.container input:hover{
+    border-color: #5E717D;
+    border-radius: 5px;
+    margin: 15px auto;
+    background-color: #16151303;
+    outline: none;
+    padding: 20px;
+    transition: 0.7s;
+}
+
+.mb-3 {
+    width: 60%;
+    margin: 20px auto;
+    
+}
+#year{
+    width:103%;
+    padding: 15px 10px;
+}
+.nxt-btn{
+    text-align: right;
+}
+.nxt-btn button{
+    color: #ffffff;
+    padding: 15px 20px;
+    border-color: #000000;
+    background: #000000;
+    border-radius: 15px;
+}
+.nxt-btn button:hover{
+    color: #000000;
+    padding: 15px 20px;
+    border-color: #000000;
+    background: transparent;
+    border-radius: 15px;
+}
